@@ -4,18 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Tecnologia & Inovação</title>
+    <title>Agrinho 2026 - Lara Sophia Ferreira</title>
     <style>
-        /* --- ESTILOS GERAIS E VARIÁVEIS DE CORES --- */
+        /* --- VARIÁVEIS DE CORES (TEMA ESCURO - PADRÃO) --- */
         :root {
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            --card-bg: #1e293b;
-            --accent-green: #10b981;
-            --accent-blue: #3b82f6;
-            --accent-pink: #ec4899;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
+            --bg-principal: #120919;
+            --bg-card: #21122e;
+            --bg-header: linear-gradient(135deg, #4a154b, #6b21a8, #a855f7);
+            --texto-principal: #f3e8ff;
+            --texto-suave: #d8b4fe;
+            --cor-destaque: #c084fc;
+            --cor-botao: #3b0764;
+            --cor-borda: #581c87;
+            --sombra: rgba(168, 85, 247, 0.2);
+        }
+
+        /* --- VARIÁVEIS DE CORES (TEMA CLARO) --- */
+        [data-tema="claro"] {
+            --bg-principal: #faf5ff;
+            --bg-card: #ffffff;
+            --bg-header: linear-gradient(135deg, #7e22ce, #a855f7, #c084fc);
+            --texto-principal: #3b0764;
+            --texto-suave: #6b21a8;
+            --cor-destaque: #9333ea;
+            --cor-botao: #f3e8ff;
+            --cor-borda: #e9d5ff;
+            --sombra: rgba(147, 51, 234, 0.15);
         }
 
         * {
@@ -23,132 +37,169 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         body {
-            background: var(--bg-gradient);
-            color: var(--text-light);
+            background-color: var(--bg-principal);
+            color: var(--texto-principal);
             min-height: 100vh;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* --- CABEÇALHO VIBRANTE --- */
+        /* --- CABEÇALHO E MENU --- */
         header {
+            background: var(--bg-header);
+            color: #ffffff;
+            padding: 30px 20px 20px;
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(90deg, #059669 0%, #2563eb 50%, #7c3aed 100%);
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            margin-bottom: 40px;
+            box-shadow: 0 4px 20px var(--sombra);
+            position: relative;
+        }
+
+        .header-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto 15px;
+        }
+
+        .btn-tema {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-tema:hover {
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #e2e8f0;
-        }
-
-        /* --- SEÇÃO PRINCIPAL E CARDS --- */
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        article {
-            background-color: var(--card-bg);
-            border: 2px solid var(--border-color);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        article:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.25);
-            border-color: var(--accent-blue);
-        }
-
-        article img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 3px solid var(--accent-green);
-        }
-
-        .artigo-conteudo {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .artigo-conteudo h2 {
-            font-size: 1.5rem;
-            color: var(--accent-green);
+            font-size: 2.2rem;
             margin-bottom: 8px;
         }
 
-        .artigo-autor {
-            font-size: 0.9rem;
-            color: var(--accent-pink);
+        /* NAV - MENUS NAVEGÁVEIS */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
             font-weight: bold;
-            margin-bottom: 16px;
+        }
+
+        .nav-btn:hover, .nav-btn.ativo {
+            background-color: #ffffff;
+            color: #581c87;
+        }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .pagina {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .pagina.ativa {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CARDS E ARTIGOS */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        article {
+            background-color: var(--bg-card);
+            border: 2px solid var(--cor-borda);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 20px var(--sombra);
+            display: flex;
+            flex-direction: column;
+        }
+
+        article h2 {
+            color: var(--cor-destaque);
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+
+        .artigo-autor {
+            color: var(--texto-suave);
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
         .artigo-texto {
             line-height: 1.6;
-            color: #cbd5e1;
             margin-bottom: 20px;
             flex-grow: 1;
         }
 
-        /* --- BOTÕES DE INTERAÇÃO --- */
-        .acoes-artigo {
+        /* BOTÕES DE CURTIDA */
+        .acoes {
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
 
-        button {
-            background-color: #334155;
-            color: var(--text-light);
-            border: 2px solid transparent;
-            padding: 10px 16px;
+        .btn-curtir {
+            background-color: var(--cor-botao);
+            color: var(--texto-principal);
+            border: 1px solid var(--cor-borda);
+            padding: 8px 14px;
             border-radius: 8px;
-            font-weight: bold;
             cursor: pointer;
+            font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease;
+            gap: 6px;
         }
 
-        button:hover {
-            background-color: var(--accent-blue);
-            transform: scale(1.05);
-        }
-
-        button.ativo {
-            background-color: var(--accent-pink);
-            border-color: #f43f5e;
+        .btn-curtir.curtido {
+            background-color: var(--cor-destaque);
+            color: #ffffff;
         }
 
         /* --- RODAPÉ --- */
         footer {
             text-align: center;
-            margin-top: 50px;
             padding: 20px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            border-top: 2px solid var(--cor-borda);
+            color: var(--texto-suave);
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -156,93 +207,159 @@
 <body>
 
     <header>
-        <h1>Agrinho 2026: Conectando Campo e Tecnologia</h1>
-        <p>Inovação, sustentabilidade e o futuro da educação no campo</p>
+        <div class="header-topo">
+            <span>Agrinho 2026</span>
+            <button class="btn-tema" id="btn-tema">🌙 Tema Escuro</button>
+        </div>
+        <h1>Programa Agrinho 2026</h1>
+        <p>Do Campo à Cidade: Colhendo Oportunidades com Tecnologia</p>
+
+        <nav>
+            <button class="nav-btn ativo" onclick="mudarPagina('inicio')">Início</button>
+            <button class="nav-btn" onclick="mudarPagina('sobre')">Sobre o Agrinho</button>
+            <button class="nav-btn" onclick="mudarPagina('tecnologia')">Tecnologia no Campo</button>
+            <button class="nav-btn" onclick="mudarPagina('projetos')">Projetos 2026</button>
+        </nav>
     </header>
 
     <main>
-        <article>
-            <img src="https://picsum.photos/600/400?random=1"
-                alt="Logotipo conceitual de tecnologia e educacao: um livro aberto de onde emerge um cérebro digital brilhante.">
+        <section id="inicio" class="pagina ativa">
+            <div class="card-grid">
+                <article>
+                    <h2>Bem-vindos ao Agrinho 2026</h2>
+                    <p class="artigo-autor">Por: Lara Sophia Ferreira</p>
+                    <p class="artigo-texto">
+                        O Programa Agrinho é uma iniciativa educacional que transforma a realidade de milhares de estudantes. Em 2026, nosso foco principal é unir a tradição do campo às inovações tecnológicas do futuro.
+                    </p>
+                    <div class="acoes">
+                        <button class="btn-curtir">💜 <span>0</span></button>
+                    </div>
+                </article>
 
-            <div class="artigo-conteudo">
-                <h2>Cérebro Digital na Educação</h2>
+                <article>
+                    <h2>O Papel da Educação Rural</h2>
+                    <p class="artigo-autor">Por: Lara Sophia Ferreira</p>
+                    <p class="artigo-texto">
+                        Aprender a programar e entender novas tecnologias permite que jovens do campo desenvolvam soluções para suas próprias comunidades, promovendo a sustentabilidade e o desenvolvimento local.
+                    </p>
+                    <div class="acoes">
+                        <button class="btn-curtir">💜 <span>0</span></button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="sobre" class="pagina">
+            <article>
+                <h2>História e Propósito do Agrinho</h2>
                 <p class="artigo-autor">Por: Lara Sophia Ferreira</p>
                 <p class="artigo-texto">
-                    A transformação digital chegou às escolas rurais! Descubra como a inteligência artificial e a robótica
-                    estão ajudando alunos a criarem soluções incríveis para o projeto Agrinho 2026.
+                    Criado com o objetivo de incentivar a pesquisa, a leitura e a cidadania, o Agrinho aproxima temas essenciais como meio ambiente, saúde, ética e inovação do cotidiano escolar. Na edição de 2026, incentivamos a inclusão digital de estudantes de todas as idades.
                 </p>
-                <div class="acoes-artigo">
-                    <button class="btn-interacao">❤️ <span>0</span></button>
-                    <button class="btn-interacao">💡 <span>0</span></button>
+                <div class="acoes">
+                    <button class="btn-curtir">💜 <span>0</span></button>
                 </div>
+            </article>
+        </section>
+
+        <section id="tecnologia" class="pagina">
+            <div class="card-grid">
+                <article>
+                    <h2>Inovação e Agritech</h2>
+                    <p class="artigo-autor">Por: Lara Sophia Ferreira</p>
+                    <p class="artigo-texto">
+                        Uso de drones, automação na irrigação e inteligência artificial para previsão do tempo: a tecnologia no campo já é uma realidade e melhora a eficiência na produção de alimentos.
+                    </p>
+                    <div class="acoes">
+                        <button class="btn-curtir">💜 <span>0</span></button>
+                    </div>
+                </article>
+
+                <article>
+                    <h2>Sustentabilidade Digital</h2>
+                    <p class="artigo-autor">Por: Lara Sophia Ferreira</p>
+                    <p class="artigo-texto">
+                        A tecnologia ajuda a preservar o meio ambiente através do monitoramento do uso de água, redução de desperdícios e proteção da biodiversidade rural.
+                    </p>
+                    <div class="acoes">
+                        <button class="btn-curtir">💜 <span>0</span></button>
+                    </div>
+                </article>
             </div>
-        </article>
+        </section>
 
-        <article>
-            <img src="https://picsum.photos/600/400?random=2"
-                alt="Drone voando sobre uma plantação moderna com sensores tecnológicos.">
-
-            <div class="artigo-conteudo">
-                <h2>Drones e Sensores no Campo</h2>
+        <section id="projetos" class="pagina">
+            <article>
+                <h2>Meu Projeto de Front-End</h2>
                 <p class="artigo-autor">Por: Lara Sophia Ferreira</p>
                 <p class="artigo-texto">
-                    A tecnologia da informação impulsiona a sustentabilidade no agronegócio. Com o uso de sensores de solo e
-                    drones, agricultores reduzem o consumo de água e aumentam a produtividade.
+                    Este site foi desenvolvido especialmente para a categoria de Programação Front-End do Agrinho 2026. Ele demonstra na prática o uso de HTML5, CSS3 responsivo em tons de lilás e lógica interativa em JavaScript!
                 </p>
-                <div class="acoes-artigo">
-                    <button class="btn-interacao">❤️ <span>0</span></button>
-                    <button class="btn-interacao">🌱 <span>0</span></button>
+                <div class="acoes">
+                    <button class="btn-curtir">💜 <span>0</span></button>
                 </div>
-            </div>
-        </article>
-
-        <article>
-            <img src="https://picsum.photos/600/400?random=3"
-                alt="Linhas de código de programação em uma tela de computador com iluminação neon.">
-
-            <div class="artigo-conteudo">
-                <h2>Aprendendo a Programar do Zero</h2>
-                <p class="artigo-autor">Por: Lara Sophia Ferreira</p>
-                <p class="artigo-texto">
-                    Entender HTML, CSS e JavaScript é como aprender um novo idioma. Com essas ferramentas, você pode criar
-                    plataformas completas e compartilhar conhecimento com o mundo todo.
-                </p>
-                <div class="acoes-artigo">
-                    <button class="btn-interacao">❤️ <span>0</span></button>
-                    <button class="btn-interacao">🚀 <span>0</span></button>
-                </div>
-            </div>
-        </article>
+            </article>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Projeto Agrinho — Criado por Lara Sophia Ferreira</p>
+        <p>&copy; 2026 Agrinho — Desenvolvimento Front-End por Lara Sophia Ferreira</p>
     </footer>
 
     <script>
-        // Seleciona todos os botões de interação da página
-        const botoes = document.querySelectorAll(".btn-interacao");
+        // LÓGICA DE NAVEGAÇÃO ENTRE PÁGINAS
+        function mudarPagina(idPagina) {
+            // Esconde todas as páginas
+            const paginas = document.querySelectorAll('.pagina');
+            paginas.forEach(p => p.classList.remove('ativa'));
 
-        // Aplica a lógica de curtir/descurtir individualmente para cada botão
-        botoes.forEach(function (botao) {
+            // Remove o destaque dos botões do menu
+            const botoesNav = document.querySelectorAll('.nav-btn');
+            botoesNav.forEach(b => b.classList.remove('ativo'));
+
+            // Exibe a página selecionada
+            document.getElementById(idPagina).classList.add('ativa');
+
+            // Destaca o botão clicado
+            event.target.classList.add('ativo');
+        }
+
+        // LÓGICA DE ALTERNÂNCIA DE TEMA (CLARO / ESCURO)
+        const btnTema = document.getElementById('btn-tema');
+        let temaEscuro = true;
+
+        btnTema.addEventListener('click', () => {
+            temaEscuro = !temaEscuro;
+            if (temaEscuro) {
+                document.documentElement.removeAttribute('data-tema');
+                btnTema.textContent = '🌙 Tema Escuro';
+            } else {
+                document.documentElement.setAttribute('data-tema', 'claro');
+                btnTema.textContent = '☀️ Tema Claro';
+            }
+        });
+
+        // LÓGICA DOS BOTÕES DE CURTIDA
+        const botoesCurtir = document.querySelectorAll('.btn-curtir');
+
+        botoesCurtir.forEach(botao => {
             let curtiu = false;
 
-            botao.addEventListener("click", function () {
-                let texto = botao.querySelector("span");
+            botao.addEventListener('click', () => {
+                let contador = botao.querySelector('span');
 
-                if (curtiu === false) {
-                    texto.textContent++;
+                if (!curtiu) {
+                    contador.textContent = parseInt(contador.textContent) + 1;
                     curtiu = true;
-                    botao.classList.add("ativo");
+                    botao.classList.add('curtido');
                 } else {
-                    texto.textContent--;
+                    contador.textContent = parseInt(contador.textContent) - 1;
                     curtiu = false;
-                    botao.classList.remove("ativo");
+                    botao.classList.remove('curtido');
                 }
             });
         });
     </script>
 </body>
 
-</html><wbr></wbr>
+</html>
