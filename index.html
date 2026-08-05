@@ -19,4 +19,230 @@
         }
 
         * {
-            margin
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- CABEÇALHO VIBRANTE --- */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(90deg, #059669 0%, #2563eb 50%, #7c3aed 100%);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #e2e8f0;
+        }
+
+        /* --- SEÇÃO PRINCIPAL E CARDS --- */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        article {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        article:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.25);
+            border-color: var(--accent-blue);
+        }
+
+        article img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent-green);
+        }
+
+        .artigo-conteudo {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .artigo-conteudo h2 {
+            font-size: 1.5rem;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+        }
+
+        .artigo-autor {
+            font-size: 0.9rem;
+            color: var(--accent-pink);
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .artigo-texto {
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* --- BOTÕES DE INTERAÇÃO --- */
+        .acoes-artigo {
+            display: flex;
+            gap: 12px;
+        }
+
+        button {
+            background-color: #334155;
+            color: var(--text-light);
+            border: 2px solid transparent;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: var(--accent-blue);
+            transform: scale(1.05);
+        }
+
+        button.ativo {
+            background-color: var(--accent-pink);
+            border-color: #f43f5e;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Agrinho 2026: Conectando Campo e Tecnologia</h1>
+        <p>Inovação, sustentabilidade e o futuro da educação no campo</p>
+    </header>
+
+    <main>
+        <article>
+            <img src="https://picsum.photos/600/400?random=1"
+                alt="Logotipo conceitual de tecnologia e educacao: um livro aberto de onde emerge um cérebro digital brilhante.">
+
+            <div class="artigo-conteudo">
+                <h2>Cérebro Digital na Educação</h2>
+                <p class="artigo-autor">Por: Lara Sophia Ferreira</p>
+                <p class="artigo-texto">
+                    A transformação digital chegou às escolas rurais! Descubra como a inteligência artificial e a robótica
+                    estão ajudando alunos a criarem soluções incríveis para o projeto Agrinho 2026.
+                </p>
+                <div class="acoes-artigo">
+                    <button class="btn-interacao">❤️ <span>0</span></button>
+                    <button class="btn-interacao">💡 <span>0</span></button>
+                </div>
+            </div>
+        </article>
+
+        <article>
+            <img src="https://picsum.photos/600/400?random=2"
+                alt="Drone voando sobre uma plantação moderna com sensores tecnológicos.">
+
+            <div class="artigo-conteudo">
+                <h2>Drones e Sensores no Campo</h2>
+                <p class="artigo-autor">Por: Lara Sophia Ferreira</p>
+                <p class="artigo-texto">
+                    A tecnologia da informação impulsiona a sustentabilidade no agronegócio. Com o uso de sensores de solo e
+                    drones, agricultores reduzem o consumo de água e aumentam a produtividade.
+                </p>
+                <div class="acoes-artigo">
+                    <button class="btn-interacao">❤️ <span>0</span></button>
+                    <button class="btn-interacao">🌱 <span>0</span></button>
+                </div>
+            </div>
+        </article>
+
+        <article>
+            <img src="https://picsum.photos/600/400?random=3"
+                alt="Linhas de código de programação em uma tela de computador com iluminação neon.">
+
+            <div class="artigo-conteudo">
+                <h2>Aprendendo a Programar do Zero</h2>
+                <p class="artigo-autor">Por: Lara Sophia Ferreira</p>
+                <p class="artigo-texto">
+                    Entender HTML, CSS e JavaScript é como aprender um novo idioma. Com essas ferramentas, você pode criar
+                    plataformas completas e compartilhar conhecimento com o mundo todo.
+                </p>
+                <div class="acoes-artigo">
+                    <button class="btn-interacao">❤️ <span>0</span></button>
+                    <button class="btn-interacao">🚀 <span>0</span></button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Projeto Agrinho — Criado por Lara Sophia Ferreira</p>
+    </footer>
+
+    <script>
+        // Seleciona todos os botões de interação da página
+        const botoes = document.querySelectorAll(".btn-interacao");
+
+        // Aplica a lógica de curtir/descurtir individualmente para cada botão
+        botoes.forEach(function (botao) {
+            let curtiu = false;
+
+            botao.addEventListener("click", function () {
+                let texto = botao.querySelector("span");
+
+                if (curtiu === false) {
+                    texto.textContent++;
+                    curtiu = true;
+                    botao.classList.add("ativo");
+                } else {
+                    texto.textContent--;
+                    curtiu = false;
+                    botao.classList.remove("ativo");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
